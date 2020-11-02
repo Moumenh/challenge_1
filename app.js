@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (xIsNext) {
             e.target.classList.add('x')
             if(checkWin('x')){
-                return alert('player x is won')
+                 handleReset()
+                 return alert('player x is won')
             }
             xIsNext = !xIsNext
             status.innerHTML = `o is next`
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             e.target.classList.add('o')
             if(checkWin('o')){
+                handleReset()
                 alert('player o is won')
             }
             xIsNext = !xIsNext
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const handleReset = (e) => {
+    const handleReset = () => {
         xIsNext = true;
         status.innerHTML = `x is next`;
         cells.forEach((cell) => {
