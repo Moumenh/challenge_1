@@ -37,21 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (xIsNext) {
             e.target.classList.add('x')
-            if(checkWin('x')){
-                 handleReset()
-                 return alert('player x is won')
-            }
+            
             xIsNext = !xIsNext
             status.innerHTML = `o is next`
+            if(checkWin('x')){
+                handleReset()
+                return alert('player x is won')
+           }
 
         } else {
             e.target.classList.add('o')
+            
+            xIsNext = !xIsNext
+            status.innerHTML = `x is next`
             if(checkWin('o')){
                 handleReset()
                 alert('player o is won')
             }
-            xIsNext = !xIsNext
-            status.innerHTML = `x is next`
         }
     }
 
